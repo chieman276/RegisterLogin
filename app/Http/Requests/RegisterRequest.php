@@ -25,9 +25,9 @@ class RegisterRequest extends FormRequest
     {
         return [
             // regex:/^[A-Za-z]{4}\d{4}$/
-            'login_id' => 'required|min:3|max:20|unique:users',
+            'login_id' => 'required|min:3|max:20|regex:/([a-z0-9 ])+/|unique:users',
             'password' => 'required',
-            'phone' => 'required|min:9|max:12|unique:users',
+            'phone' => 'required|min:9|max:12|regex:/([0-9 ])+/|unique:users',
             'full_name' => 'required|min:3|max:100',
             'email' => 'required|unique:users',
         ];
