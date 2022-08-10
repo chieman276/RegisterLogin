@@ -78,7 +78,7 @@ class UserController extends Controller
         $checkUserByLogin_id = User::where('login_id',$login_id)->take(1)->first();
         if ($checkUserByLogin_id && Hash::check($request->password,$checkUserByLogin_id->password)) {
             Auth::login($checkUserByLogin_id);
-            return redirect()->route('users.home');
+            return redirect()->route('users.home')->with('success', 'Đăng nhập thành công');;
         } else {
             Session::flash('error_login_id','Thông tin tài khoản hoặc mật khẩu không chính xác');
             return redirect()->back();

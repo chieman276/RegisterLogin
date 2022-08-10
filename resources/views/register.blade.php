@@ -71,8 +71,8 @@
 							<div>
 								<label> Trạng thái</label>
 								<select name="status" class="form-control">
-									<option value="1" @selected( old('status')=='1' )>Ẩn</option>
-									<option value="0" @selected( old('status')=='0' )>Hiện</option>
+									<option value="1" @selected( old('status')=='1' )>Hiện</option>
+									<option value="0" @selected( old('status')=='0' )>Ẩn</option>
 								</select>
 								@if ($errors->any())
 								<p style="color:red">{{ $errors->first('status') }}</p>

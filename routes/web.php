@@ -18,11 +18,11 @@ use Illuminate\Support\Facades\Route;
 // return view('user');
 // });
 
-Route::get('/home',[ UserController::class,'home'])->name('users.home');
-Route::get('/users',[ UserController::class,'index'])->name('users');
+Route::get('/home',[ UserController::class,'home'])->name('users.home')->middleware('CheckLogin');
+Route::get('/users',[ UserController::class,'index'])->name('users')->middleware('CheckLogin');;
 Route::get('/register',[ UserController::class, 'register' ])->name('register');
 Route::post('/store',[ UserController::class, 'store' ])->name('register.store');
-Route::get('/login',[ UserController::class, 'login' ])->name('login');
+Route::get('/login',[ UserController::class, 'login' ])->name('login')->middleware('CheckUser');
 Route::get('/logout',[ UserController::class, 'logout' ])->name('logout');
 Route::post('/postLogin',[ UserController::class, 'postLogin' ])->name('postLogin');
 
